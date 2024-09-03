@@ -3,10 +3,7 @@ import { calculateRegion, generateMarkersFromData } from "@/lib";
 import { useDriverStore, useLocationStore } from "@/store";
 import { Driver, MarkerData } from "@/types/type";
 import React, { useEffect, useState } from "react";
-import { Text } from "react-native";
 import MapView, { Marker, PROVIDER_DEFAULT } from "react-native-maps";
-
-type Props = {};
 
 const drivers: Driver[] = [
     {
@@ -54,7 +51,7 @@ const drivers: Driver[] = [
         rating: "4.90",
     },
 ];
-const Map = (props: Props) => {
+const Map = () => {
     const {
         userLatitude,
         userLongitude,
@@ -84,7 +81,6 @@ const Map = (props: Props) => {
             setMarkers(newMarkers);
         }
     }, [drivers]);
-    console.log({ markers });
     return (
         <MapView
             provider={PROVIDER_DEFAULT}

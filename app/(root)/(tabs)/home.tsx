@@ -150,7 +150,16 @@ const Home = () => {
     }, []);
 
     const handleSignOut = () => {};
-    const handleDestinationPress = () => {};
+    const handleDestinationPress = (location: {
+        latitude: number;
+        longitude: number;
+        address: string;
+    }) => {
+        console.log({ location });
+        setDestinationLocation(location);
+
+        // router.push("/(root)/find-ride");
+    };
     return (
         <SafeAreaView className="bg-general-500">
             <FlatList
@@ -198,9 +207,10 @@ const Home = () => {
                         </View>
                         <GoogleTextInput
                             icon={icons.search}
-                            containerStyle=""
+                            containerStyle="bg-white shadow-md shadow-neutral-300"
                             handlePress={handleDestinationPress}
                         />
+
                         <Text className="text-xl font-JakartaBold mt-5 mb-3">
                             Your current location
                         </Text>
