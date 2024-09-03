@@ -1,5 +1,6 @@
 import { CustomButton, InputField, OAuth } from "@/components";
 import { icons, images } from "@/constants";
+import { fetchAPI } from "@/lib/fetch";
 import { useSignUp } from "@clerk/clerk-expo";
 import { Link, router } from "expo-router";
 import React, { useState } from "react";
@@ -58,6 +59,14 @@ const SignUp = () => {
             );
             if (completeSignUp.status === "complete") {
                 // fetch API chưa làm
+                await fetchAPI("/(api)/user", {
+                    method: "POST",
+                    body: JSON.stringify({
+                        name: form.name,
+                        email: form.email,
+                        clerkId: completeSignUp.createdUserId,
+                    }),
+                });
                 await setActive({
                     session: completeSignUp.createdSessionId,
                 });
