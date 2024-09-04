@@ -1,10 +1,10 @@
 import { icons } from "@/constants";
 import { GoogleInputProps } from "@/types/type";
 import React from "react";
-import { Image, View } from "react-native";
+import { Image, TouchableOpacity, View } from "react-native";
 import { GooglePlacesAutocomplete } from "react-native-google-places-autocomplete";
 
-const googlePlacesApiKey = process.env.EXPO_PUBLIC_GOOGLE_API_KEY;
+const googlePlacesApiKey = process.env.EXPO_PUBLIC_GOOGLE_API_KEY; // Cần phải thanh toán bill mới có google api key
 const GoogleTextInput = ({
     icon,
     initialLocation,
@@ -53,9 +53,10 @@ const GoogleTextInput = ({
                 }}
                 onPress={(data, details = null) => {
                     handlePress({
-                        latitude: details?.geometry.location.lat!,
-                        longitude: details?.geometry.location.lng!,
-                        address: data.description,
+                        latitude: 10.773831195356284, // details?.geometry.location.lat!,
+                        longitude: 106.70137407148702, // details?.geometry.location.lng!,
+                        address:
+                            "122 Pasteur, Bến Nghé, Quận 1, Hồ Chí Minh, Việt Nam", //data.description,
                     });
                 }}
                 query={{
@@ -63,13 +64,23 @@ const GoogleTextInput = ({
                     language: "en",
                 }}
                 renderLeftButton={() => (
-                    <View className="justify-center items-center w-6 h-6">
+                    <TouchableOpacity
+                        className="justify-center items-center w-6 h-6"
+                        onPress={() => {
+                            handlePress({
+                                latitude: 10.773831195356284, // details?.geometry.location.lat!,
+                                longitude: 106.70137407148702, // details?.geometry.location.lng!,
+                                address:
+                                    "122 Pasteur, Bến Nghé, Quận 1, Hồ Chí Minh, Việt Nam", //data.description,
+                            });
+                        }}
+                    >
                         <Image
                             source={icon ? icon : icons.search}
                             className="w-6 h-6"
                             resizeMode="contain"
                         />
-                    </View>
+                    </TouchableOpacity>
                 )}
                 textInputProps={{
                     placeholderTextColor: "gray",

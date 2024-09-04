@@ -41,7 +41,7 @@ declare interface Ride {
 }
 
 declare interface Driver {
-    driver_id: string;
+    driver_id: string | number;
     first_name: string;
     last_name: string;
     profile_image_url: string;

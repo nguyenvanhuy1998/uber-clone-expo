@@ -14,6 +14,7 @@ import {
 } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import * as Location from "expo-location";
+import { router } from "expo-router";
 
 const recentRides: Ride[] = [
     {
@@ -140,6 +141,9 @@ const Home = () => {
                 latitude: location.coords?.latitude!,
                 longitude: location.coords?.longitude!,
             });
+            // console.log(location.coords.latitude);
+            // console.log(location.coords.longitude);
+            // console.log(`${address[0].name}, ${address[0].region}`);
 
             setUserLocation({
                 latitude: location.coords.latitude,
@@ -155,10 +159,8 @@ const Home = () => {
         longitude: number;
         address: string;
     }) => {
-        console.log({ location });
         setDestinationLocation(location);
-
-        // router.push("/(root)/find-ride");
+        router.push("/(root)/find-ride");
     };
     return (
         <SafeAreaView className="bg-general-500">
@@ -194,7 +196,7 @@ const Home = () => {
                 )}
                 ListHeaderComponent={
                     <>
-                        <View className="flex flex-row items-center justify-between my-5">
+                        <View className="flex flex-row  items-center justify-between my-5">
                             <Text className="text-2xl font-JakartaBold">
                                 Welcome {user?.firstName}👋
                             </Text>

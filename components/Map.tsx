@@ -1,11 +1,11 @@
 import { icons } from "@/constants";
 import { calculateRegion, generateMarkersFromData } from "@/lib";
 import { useDriverStore, useLocationStore } from "@/store";
-import { Driver, MarkerData } from "@/types/type";
+import { MarkerData } from "@/types/type";
 import React, { useEffect, useState } from "react";
 import MapView, { Marker, PROVIDER_DEFAULT } from "react-native-maps";
 
-const drivers: Driver[] = [
+const drivers: any[] = [
     {
         driver_id: "1",
         first_name: "James",
@@ -69,6 +69,8 @@ const Map = () => {
     const [markers, setMarkers] = useState<MarkerData[]>([]);
 
     useEffect(() => {
+        // TODO: Remove
+        setDrivers(drivers);
         if (Array.isArray(drivers)) {
             if (!userLatitude || !userLongitude) {
                 return;
