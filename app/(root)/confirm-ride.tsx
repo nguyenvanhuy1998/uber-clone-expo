@@ -15,7 +15,7 @@ const ConfirmRide = () => {
                         item={item}
                         selected={selectedDriver!}
                         setSelected={() =>
-                            setSelectedDriver(item.driver_id! as number)
+                            setSelectedDriver(Number(item.driver_id!))
                         }
                     />
                 )}

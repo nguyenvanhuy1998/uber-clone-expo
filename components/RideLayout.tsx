@@ -9,7 +9,7 @@ import Map from "./Map";
 type Props = {
     children?: ReactNode;
     title?: string;
-    snapPoints: string[];
+    snapPoints?: string[];
 };
 
 const RideLayout = ({ children, title, snapPoints }: Props) => {

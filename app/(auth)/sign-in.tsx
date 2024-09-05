@@ -61,6 +61,7 @@ const SignIn = () => {
                         icon={icons.email}
                         textContentType="emailAddress"
                         value={form.email}
+                        autoCapitalize="none"
                         onChangeText={(value: string) =>
                             setForm({
                                 ...form,

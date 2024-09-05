@@ -6,6 +6,7 @@ import GoogleTextInput from "./GoogleTextInput";
 import Map from "./Map";
 import RideLayout from "./RideLayout";
 import DriverCard from "./DriverCard";
+import Payment from "./Payment";
 export {
     CustomButton,
     InputField,
@@ -15,4 +16,5 @@ export {
     Map,
     RideLayout,
     DriverCard,
+    Payment,
 };
